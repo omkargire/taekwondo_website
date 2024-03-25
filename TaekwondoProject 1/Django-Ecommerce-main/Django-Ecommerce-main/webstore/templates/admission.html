@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    Admission
+{% endblock %}
+
+{% block body %}
+    
+
+
+    <section class="admission">
+        <div class="containers">
+            <div class="title">Application for admission</div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="user-data">
+                    <div class="names">
+                        <div>
+                            <span class="details">First Name</span>
+                            <input type="text" id="firstName" name="first_name" placeholder="Enter your name here"
+                                required>
+                        </div>
+                        <div>
+                            <span class="details">Last Name</span>
+                            <input type="text" id="LastName" name="last_name" placeholder="Enter your name here"
+                                required>
+                        </div>
+                    </div>
+                    <div class="names">
+                        <div>
+                            <span class="details">Date of Birth</span>
+                            <input type="date" id="DOB" name="date_of_birth" max="{{ today | date:'Y-m-d' }}">
+
+                        </div>
+                        <div>
+                            <span class="details">Contact number</span>
+                            <div class="fs-small ff-imprima"></div>
+                            <input type="text" id="contact" name="contact_info" pattern="[0-9]{10}" title="Contact number must be exactly 10 digits" onblur="validateContact(this)" required placeholder="Enter your number here">
+
+                        </div>
+                    </div>
+                    <div style="padding-top: 3rem;">
+                        <span class="details">Address</span>
+                        <input type="text" id="address" name="address" style="height: 90px; font-size: var(fs-title); "
+                            placeholder="Enter your address here" required>
+                    </div>
+                    <div style="padding-top: 3rem;">
+                        <span class="details">School Name</span>
+                        <input type="text" name="School"
+                            placeholder="Enter School name here" required>
+                    </div>
+                    <div class="names">
+                        <div>
+                            <span class="details">Branch</span>
+                            <select name="branch" id="cars">
+                                <option value="~SELECT~">~SELECT~</option>
+                                <option value="Nerul">Nerul</option>
+                                <option value="Koperkhairane">Koperkhairane</option>
+                            </select>
+                        </div>
+                     
+                     <div class="name">
+                        <div>
+                             <span class="details">Blood Group</span>
+                             <select name="Blood" id="cars">
+                                <option value="~SELECT~">~SELECT~</option>
+                                 <option value="A +">A +</option>
+                                 <option value="A -">A -</option>
+                                 <option value="B +">B +</option>
+                                  <option value="O +">O +</option>
+                                 <option value="O -">O -</option>                           
+                                 <option value="AB +">AB +</option>
+                                <option value="AB -">AB -</option>
+                             </select>
+                        </div>
+                     </div>
+
+                    </div>
+                    
+                    <div style="padding-top: 3rem;">
+                        <span class="details">Name of parents</span>
+                        <input type="text" name="parent_name" placeholder="Enter parent name here" >
+                    </div>
+                    <div class="names">
+                        <div>
+                            <span class="details">Relation</span>
+                            <select name="Relation" id="cars">
+                                <option value="~SELECT~">~SELECT~</option>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Brother">Brother</option>
+                                <option value="Syster">Syster</option>
+                                <option value="~OTHER~">~OTHER~</option>
+                            </select>
+                        <div>
+                            <span class="details">Profession</span>
+                            <input type="text" name="parent_profession" placeholder="Enter parent profession here" >
+                        </div>
+                    </div>
+
+                    <div class="names">
+                        <label for="profile_image" class="details">Upload Profile Image:</label>
+                        <input type="file" id="profile_image" name="profile_image" accept="image/*" style="margin-top: 0.5rem;" required>
+                        <!-- Add a required attribute to the input element -->
+                        <small id="profile-image-error" style="color: red; display: none;">Please select an image.</small>
+                    </div>
+                    
+                    <script>
+                        // Get the input element
+                        var profileImageInput = document.getElementById('profile_image');
+                    
+                        // Add event listener to check if the input is empty on change
+                        profileImageInput.addEventListener('change', function() {
+                            var errorText = document.getElementById('profile-image-error');
+                    
+                            if (this.files.length === 0) {
+                                // Display error message if no file is selected
+                                errorText.style.display = 'block';
+                            } else {
+                                // Hide error message if a file is selected
+                                errorText.style.display = 'none';
+                            }
+                        });
+                    </script>                    
+                    
+
+                </div>
+                <div class="buttons button-texts" style="margin-top:2rem;">
+                    <input type="submit" class="admission_btn" value="Print" style="background-color:#f1b00b ;">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+
+
+
+var contactAlertShown = false;
+
+    function validateContact(input) {
+        var contact = input.value;
+        if (contact.length !== 10 && !contactAlertShown) {
+            alert("Contact number is invalid. Please enter exactly 10 digits.");
+            contactAlertShown = true;
+            input.focus();
+        } else {
+            contactAlertShown = false;
+        }
+    }
+    </script>
+{% endblock %}
+
+

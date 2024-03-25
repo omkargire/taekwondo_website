@@ -1,0 +1,95 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+
+<section class="contact-page">
+    <div class="contact">
+        <div class="content">
+            <h2>CONTACT WITH US</h2>
+        </div>
+        <div class="cont-container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Terna Vidyalaya Terace<br>Sector-12,Nerul,Navi Mumbai<br>400706</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>9004690094</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <!--  -->
+                <form class="form-contact" action="https://formspree.io/f/mrgnqlgp" method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <h2>Send Messages</h2>
+                    <div class="cont-input-box">
+                        <input type="text" class="item" id="Name" name="name" oninput="checkInputValue(this)">
+                        <span class="floating-label">Full name</span>
+                        <div class="error-txt">Full name can't be blank</div>
+                    </div>
+                    <div class="cont-input-box">
+                        <input type="email" class="item" id="Email" name="email" oninput="checkInputValue(this)">
+                        <span class="floating-label">Email</span>
+                        <div class="error-txt">Email can't be blank</div>
+                    </div>
+                    <div class="cont-input-box">
+                        <input type="text" class="item" id="Contact" name="contact" pattern="[0-9]{10}" title="Contact number must be exactly 10 digits" onblur="validateContact(this)" oninput="checkInputValue(this)">
+            
+                        <span class="floating-label">Contact</span>
+                        <div class="error-txt">Contact can't be blank</div>
+                    </div>
+                    <div class="cont-input-box">
+                        <textarea class="item" id="problem" name="problem"></textarea>
+                        <span>Enter your problems here</span>
+                        <div class="error-txt">Message can't be blank</div>
+                    </div>
+                    <div class="cont-input-box">
+                        <input type="submit" value="send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function checkInputValue(input) {
+            var label = input.nextElementSibling;
+            if (input.value !== "") {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
+        }
+
+        var contactAlertShown = false;
+
+    function validateContact(input) {
+        var contact = input.value;
+        if (contact.length !== 10 && !contactAlertShown) {
+            alert("Contact number is invalid. Please enter exactly 10 digits.");
+            contactAlertShown = true;
+            input.focus();
+        } else {
+            contactAlertShown = false;
+        }
+    }
+    </script>
+    
+</section>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Purchase Confirmed - {{ product.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout">
+        <div class="purchase-form">
+        <h2 class="ff-imprima">Purchase Confirmed</h2>
+        <p class="ff-imprima">Thank you for purchasing <strong>{{ product.title }}</strong>!</p>
+        
+        <p class="ff-imprima">We've received the following details:</p>
+        <ul class="ff-imprima">
+            <li><strong>Name:</strong> {{ name }}</li>
+            <li><strong>Address:</strong> {{ address }}</li>
+            <li><strong>Payment Information:</strong> {{ "ONLINE" }}</li>
+        </ul>
+        
+        <p class="ff-imprima">You will receive a confirmation email shortly.</p>
+
+        <a href="{% url 'home' %}" class="btn btn-primary ff-imprima">Go Back Home</a>
+    </div>
+    </div>
+{% endblock %}

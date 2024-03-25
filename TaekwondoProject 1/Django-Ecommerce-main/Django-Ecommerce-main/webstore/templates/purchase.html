@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Purchase - {{ product.title }}
+{% endblock %}
+
+{% block body %}
+
+<section class="checkout">
+    <form method="post" action="{% url 'confirm_purchase' product.id %}" class="check-details">
+        {% csrf_token %}
+        <p class="ff-imprima fs-title">Enter purchase details</p>
+
+        <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Payment information</span>
+            <select name="payment" id="payment" required>
+                <option value="~SELECT~">~SELECT~</option>
+                <option value="ONLINE">ONLINE</option>
+                <option value="CASH">CASH</option>
+            </select>
+        </div>
+        
+        <div class="input-box">
+            <input type="submit" value="Confirm Purchase" style="background-color:#f1b00b;">
+        </div>
+    </form>
+</section>
+{% endblock %}

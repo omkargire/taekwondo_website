@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
+{% block body %}
+
+
+
+    <section class="product-details">
+        <div class="productImg">
+            <div class="image">
+                <img src="{{ product.imgurl }}" class="img-fluid rounded" alt="{{ product.title }}">
+            </div>
+        </div>
+        <div class="productInfo">
+            <div class="information">
+                <div class="fs-title ff-imprima">{{ product.title }}</div>
+                <div class="fs-text ff-imprima" id="INFO" style="max-height: 200px; height:fit-content; overflow:scroll;">{{ product.description }}</div>
+                <div class="fs-small ff-imprima">Category: {{ product.category }}</div>
+                
+                <div class="fs-title ff-imprima">Price: ₹ {{ product.curprice }}</div>
+            </div>
+
+            <form method="POST" action="{% url 'purchase' product.id %}">
+                {% csrf_token %}
+            <div style="height: fit-content; padding: 1rem;">
+                <div class="buttons" style="margin-left:5%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 16 18" fill="none">
+                        <path
+                            d="M1 0.5C0.734784 0.5 0.48043 0.605357 0.292893 0.792893C0.105357 0.98043 0 1.23478 0 1.5C0 1.76522 0.105357 2.01957 0.292893 2.20711C0.48043 2.39464 0.734784 2.5 1 2.5H2.22L2.525 3.722C2.52803 3.73607 2.53136 3.75007 2.535 3.764L3.893 9.194L3 10.086C1.74 11.346 2.632 13.5 4.414 13.5H13C13.2652 13.5 13.5196 13.3946 13.7071 13.2071C13.8946 13.0196 14 12.7652 14 12.5C14 12.2348 13.8946 11.9804 13.7071 11.7929C13.5196 11.6054 13.2652 11.5 13 11.5H4.414L5.414 10.5H12C12.1857 10.4999 12.3676 10.4481 12.5255 10.3504C12.6834 10.2528 12.811 10.1131 12.894 9.947L15.894 3.947C15.9702 3.79458 16.0061 3.62522 15.9985 3.45501C15.9908 3.28479 15.9398 3.11935 15.8502 2.97439C15.7606 2.82944 15.6355 2.70977 15.4867 2.62674C15.3379 2.54372 15.1704 2.50009 15 2.5H4.28L3.97 1.257C3.91583 1.04075 3.79095 0.848809 3.61521 0.711655C3.43946 0.574502 3.22293 0.500006 3 0.5H1ZM14 16C14 16.3978 13.842 16.7794 13.5607 17.0607C13.2794 17.342 12.8978 17.5 12.5 17.5C12.1022 17.5 11.7206 17.342 11.4393 17.0607C11.158 16.7794 11 16.3978 11 16C11 15.6022 11.158 15.2206 11.4393 14.9393C11.7206 14.658 12.1022 14.5 12.5 14.5C12.8978 14.5 13.2794 14.658 13.5607 14.9393C13.842 15.2206 14 15.6022 14 16ZM4.5 17.5C4.89782 17.5 5.27936 17.342 5.56066 17.0607C5.84196 16.7794 6 16.3978 6 16C6 15.6022 5.84196 15.2206 5.56066 14.9393C5.27936 14.658 4.89782 14.5 4.5 14.5C4.10218 14.5 3.72064 14.658 3.43934 14.9393C3.15804 15.2206 3 15.6022 3 16C3 16.3978 3.15804 16.7794 3.43934 17.0607C3.72064 17.342 4.10218 17.5 4.5 17.5Z"
+                            fill="black" />
+                    </svg>
+                    <button type="submit" class="button-texts">CHECKOUT</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    Trainers
+{% endblock %}
+
+{% block body %}
+    <h1>Trainers</h1>
+
+    <div class="container">
+        <div class="row">
+            <!-- Trainer 1 -->
+            <div class="col-md-4 mb-3">
+                <div class="card trainer-card">
+                    <div class="card-body">
+                        <div class="profile-image">
+                            <img src="{% static 'path/to/trainer1/photo.jpg' %}" alt="Trainer 1 Photo" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="profile-details">
+                            <h2>Omkar Gire</h2>
+                            <p><strong>Qualification:</strong> 12th Pass</p>
+                            <p><strong>Experience:</strong> 5 years</p>
+                            <p><strong>Bio:</strong> Best Trainer</p>
+                            <p><strong>Specialization:</strong> Best In Both</p>
+                            <p><strong>Contact Information:</strong> 1234567890</p>
+                            <p><strong>Social Media:</strong> <a href="#">Social Media Link</a></p>
+                            <p><strong>Achievements:</strong> Trainer Achievements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trainer 2 -->
+            <div class="col-md-4 mb-3">
+                <div class="card trainer-card">
+                    <div class="card-body">
+                        <div class="profile-image">
+                            <img src="{% static 'path/to/trainer2/photo.jpg' %}" alt="Trainer 2 Photo" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="profile-details">
+                            <h2>Trainer 2 Name</h2>
+                            <p><strong>Qualification:</strong> Trainer 2 Qualification</p>
+                            <p><strong>Experience:</strong> Trainer 2 Experience years</p>
+                            <p><strong>Bio:</strong> Trainer 2 Bio</p>
+                            <p><strong>Specialization:</strong> Trainer 2 Specialization</p>
+                            <p><strong>Contact Information:</strong> Trainer 2 Contact Information</p>
+                            <p><strong>Social Media:</strong> <a href="#">Social Media Link</a></p>
+                            <p><strong>Achievements:</strong> Trainer 2 Achievements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trainer 3 -->
+            <div class="col-md-4 mb-3">
+                <div class="card trainer-card">
+                    <div class="card-body">
+                        <div class="profile-image">
+                            <img src="{% static 'path/to/trainer3/photo.jpg' %}" alt="Trainer 3 Photo" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="profile-details">
+                            <h2>Trainer 3 Name</h2>
+                            <p><strong>Qualification:</strong> Trainer 3 Qualification</p>
+                            <p><strong>Experience:</strong> Trainer 3 Experience years</p>
+                            <p><strong>Bio:</strong> Trainer 3 Bio</p>
+                            <p><strong>Specialization:</strong> Trainer 3 Specialization</p>
+                            <p><strong>Contact Information:</strong> Trainer 3 Contact Information</p>
+                            <p><strong>Social Media:</strong> <a href="#">Social Media Link</a></p>
+                            <p><strong>Achievements:</strong> Trainer 3 Achievements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

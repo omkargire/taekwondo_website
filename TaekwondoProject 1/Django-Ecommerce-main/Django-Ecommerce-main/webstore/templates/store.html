@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admission
+{% endblock %}
+
+{% block body %}
+
+    <section class="shop">
+        <div class="products ">
+            {% for product in products %}
+            <div class="cards">
+                <a href="{% url 'product' product.id %}" class="text-decoration-none">
+                <img src="{{ product.imgurl }}" alt="">
+                <div class="info">
+                    <p class="fs-title ff-imprima">{{ product.title }}</p>
+                    <p class="fs-small ff-imprima">₹ {{ product.curprice }}</p>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
